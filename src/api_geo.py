@@ -1,10 +1,19 @@
 
 import requests
+import json
+from pathlib import  Path
 
 
 # Configuration de la requete
-DEPARTEMENT = "34"
+DEPARTEMENT = input("Entrez le code du departement :") 
 BASE_URL = "https://geo.api.gouv.fr"
+
+
+# Chemin de sorti
+output_path = Path("data/raw")
+output_file = output_path / f"communes_{DEPARTEMENT}.json"
+
+
 
 # Construction de la requetes
 
@@ -28,6 +37,13 @@ if response.status_code == 200:
         code = commune.get("code")
         population = commune.get("population")
         print(f"Commune: {nom}, Code: {code}, Population: {population}")
+
+        
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f" Les donnees ont ete enregistrees dans le fichier {output_file}\n")
+
+
     
-else:    print("Erreur{response.status_code} lors de la requête" )
+else:    print(f"Erreur {response.status_code} lors de la requête" )
 
