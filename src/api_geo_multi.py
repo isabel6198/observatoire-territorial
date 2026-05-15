@@ -4,7 +4,7 @@ import json
 from pathlib import  Path
 
 # Configuration de la requete
-DEPARTEMENT = [ "09", "11", "12", "30", "32", "31", "65", "34", "46", "48", "66", "81", "82" ]
+DEPARTEMENT = [ "09", "11", "12", "30", "31", "32", "34", "46", "48", "65",  "66", "81", "82" ]
 BASE_URL = "https://geo.api.gouv.fr"
 
 # Chemin de sorti
@@ -13,7 +13,7 @@ output_path = Path("data/raw")
 # Construction de la requetes
 
 params = {
-    "fields": "nom,code,population"
+    "fields": "nom,code,population,departement"
 }
 
 total_communes = 0
