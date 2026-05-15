@@ -17,8 +17,12 @@ data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# Dans .gitignore
+#
 data/processed/*.db
+# Artefacts WSL/Windows
+*observatoire.db*
+wsl.localhost*
+\\wsl*
 
 # OS
 .DS_Store
