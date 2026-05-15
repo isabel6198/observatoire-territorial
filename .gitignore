@@ -17,6 +17,9 @@ data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
+# Dans .gitignore
+data/processed/*.db
+
 # OS
 .DS_Store
 Thumbs.db
