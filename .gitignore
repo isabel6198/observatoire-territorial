@@ -12,10 +12,12 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Data — structure conservée, contenu ignoré
-data/raw/*
-data/processed/*
-!data/raw/.gitkeep
-!data/processed/.gitkeep
+data/bronze/*
+data/silver/*
+data/gold/*
+!data/bronze/.gitkeep
+!data/silver/.gitkeep
+!data/gold/.gitkeep
 
 #
 data/processed/*.db

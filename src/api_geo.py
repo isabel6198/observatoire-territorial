@@ -1,14 +1,18 @@
 
 import requests
 import json
-from pathlib import  Path
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent))  # ajoute src/ au path Python
+
+from config import BRONZE, DB_PATH
 
 # Configuration de la requete
 DEPARTEMENT = input("Entrez le code du departement :") 
 BASE_URL = "https://geo.api.gouv.fr"
 
 # Chemin de sorti
-output_path = Path("data/raw")
+output_path = BRONZE
 output_file = output_path / f"communes_{DEPARTEMENT}.json"
 
 # Construction de la requetes

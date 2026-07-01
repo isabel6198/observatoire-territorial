@@ -1,16 +1,13 @@
-
 import sqlite3
+import sys
 from pathlib import Path
 
-# Chemins
-DB_PATH = Path("data/processed/observatoire.db")
-SCHEMA_PATH = Path("sql/schema.sql")
+sys.path.append(str(Path(__file__).parent))  
+from config import DB_PATH
 
-# lecture du schema
+SCHEMA_PATH = Path(__file__).parent.parent / "sql" / "schema.sql"  #   chemin absolu
+
 schema = SCHEMA_PATH.read_text(encoding="utf-8")
-
-
-# connexion et acreation
 
 connexion = sqlite3.connect(DB_PATH)
 cursor = connexion.cursor()
@@ -18,4 +15,4 @@ cursor.executescript(schema)
 connexion.commit()
 connexion.close()
 
-print ("Base de donnes cree avec succes")
+print("Base de données créée avec succès")
